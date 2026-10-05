@@ -1,13 +1,13 @@
-# Landing page design direction
+# NodeDots observatory identity
 
-References: [OpenAI Dots](https://chatgpt.com/features/dots/) and the attached Apple style reference. NodeDots keeps its own identity and product promise.
+Current visual reference: the supplied AWE style guide. NodeDots keeps its own name and connection-intelligence product promise.
 
-Applied principles:
-- A white and pale-gray canvas with generous editorial space.
-- Controlled semibold display type, readable supporting text, and a system font stack.
-- A four-pixel spacing rhythm, rounded primary controls, and soft panel corners.
-- Flat surfaces with hairline separation; no decorative drop shadows.
-- Two main sections: introduction with waitlist, then an interactive product concept.
-- Interaction explains code relationships. No scroll hijacking, floating objects, or looping animation.
+- Near-black canvas, porcelain type, steel supporting text, and charcoal surfaces.
+- Editorial serif headlines at regular weight; system sans for reading; monospaced utility labels.
+- Connected-dot mark, also used in the favicon and product preview.
+- Flat framed surfaces with 16px corners, hairline dividers, and compact pill navigation.
+- Transparent email input and a clear underlined waitlist action.
+- Two main sections, with the interactive system graph as the primary product visual.
+- No looping decorative animation. Status labels remain explicit in monochrome.
 
-The graph and findings are illustrative; the page does not analyze visitors' code. Email collection retains the existing private storage and consent flow.
+The graph is illustrative. Waitlist consent, private storage, and privacy controls remain in place.
