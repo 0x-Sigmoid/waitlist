@@ -1,4 +1,6 @@
-# NodeDots observatory identity
+# Previous NodeDots observatory identity (superseded)
+
+The current five-state identity is specified in [BRAND.md](BRAND.md). The notes below record the previous direction and no longer govern the site.
 
 Current visual reference: the supplied AWE style guide. NodeDots keeps its own name and connection-intelligence product promise.
 
