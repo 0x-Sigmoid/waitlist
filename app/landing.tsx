@@ -81,14 +81,15 @@ export default function Landing() {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <a className="brand" href="#" aria-label="NodeDots home"><Mark/><span>NodeDots</span></a>
-      <nav aria-label="Main navigation"><a className="explore-link" href="#preview">Explore the concept</a><button className="theme-toggle" onClick={toggleTheme} aria-label="Switch between light and dark theme" title="Switch between light and dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><g className="theme-sun" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22M5 5L7 7M17 17L19 19M5 19L7 17M17 7L19 5"/></g><path className="theme-moon" d="M20 15A8 8 0 0 1 9 4A8 8 0 1 0 20 15Z" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg></button><a className="nav-join" href="#waitlist">Join the waitlist <span aria-hidden="true">↗</span></a></nav>
+      <nav aria-label="Main navigation"><a className="how-link" href="#how">How it works</a><a className="explore-link" href="/vision">What's next</a><button className="theme-toggle" onClick={toggleTheme} aria-label="Switch between light and dark theme" title="Switch between light and dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><g className="theme-sun" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22M5 5L7 7M17 17L19 19M5 19L7 17M17 7L19 5"/></g><path className="theme-moon" d="M20 15A8 8 0 0 1 9 4A8 8 0 1 0 20 15Z" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg></button><a className="nav-join" href="#waitlist">Join the waitlist <span aria-hidden="true">↗</span></a></nav>
     </header>
     <main id="main">
-      <section className="hero" aria-labelledby="hero-title">
-        <p className="product-label"><Dot state="action"/> NodeDots Code <span aria-hidden="true">/</span> Early access</p>
-        <h1 id="hero-title">Connect the dots.<br/>Before you ship.</h1>
-        <p className="hero-description">NodeDots reads your pull request against the whole repo and shows what it touched, what it missed, and what now conflicts.</p>
-        <div className="hero-signup" id="waitlist">
+      <section className="hero hero-dots" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="product-label"><Dot state="action"/> NodeDots Code <span aria-hidden="true">/</span> Early access</p>
+          <h1 id="hero-title">Connect the dots.<br/>Before you ship.</h1>
+          <p className="hero-description">NodeDots reads your pull request against the whole repo and shows what it touched, what it missed, and what now conflicts.</p>
+          <div className="hero-signup" id="waitlist">
           <form onSubmit={async event => { event.preventDefault(); const form = new FormData(event.currentTarget); try { await join(email, String(form.get("website") || "")); } catch {} }}>
             <label className="sr-only" htmlFor="email">Your email address</label>
             <div className="signup-row"><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="Your email address" value={email} onChange={event => setEmail(event.target.value)} disabled={status === "saving" || status === "success"} aria-invalid={status === "error"} aria-describedby="signup-notice signup-result"/><button className="button" disabled={status === "saving" || status === "success"}><Dot state="action"/>{status === "saving" ? "Joining…" : status === "success" ? "You're on the list" : "Join the waitlist"}</button></div>
@@ -96,10 +97,13 @@ export default function Landing() {
             <p id="signup-result" className={`form-message ${status === "error" ? "error" : ""}`} role="status">{message && <><Dot state={status === "error" ? "conflicting" : "confirmed"}/>{message}</>}</p>
             <p id="signup-notice" className="signup-notice">Early-access and launch updates. Unsubscribe anytime.<br/>By joining, you agree to receive these updates. <button type="button" className="text-button" onClick={() => setPrivacy(true)}>Privacy</button></p>
           </form>
+          </div>
         </div>
+        <div className="hero-signal" role="img" aria-label="A NodeDots change review connecting a pull request to billing, sessions, tests, and release checks"><div className="signal-head"><span>NodeDots Code</span><span>Change review</span></div><div className="signal-grid"><svg viewBox="0 0 360 240" preserveAspectRatio="none" aria-hidden="true"><path d="M62 120L180 62L298 120M62 120L180 178L298 120M180 62L180 178"/><path className="signal-line-hot" d="M62 120L180 62L298 120"/></svg><span className="signal-node signal-root"><Dot state="action"/><small>Pull request</small></span><span className="signal-node signal-top"><Dot state="confirmed"/><small>Sessions</small></span><span className="signal-node signal-bottom"><Dot state="missing"/><small>Tests</small></span><span className="signal-node signal-right"><Dot state="conflicting"/><small>Billing</small></span></div><div className="signal-foot"><span><Dot state="action"/> Review ready</span><span>5 connected findings</span></div></div>
       </section>
+      <section className="product-flow" id="how" aria-labelledby="how-title"><div className="section-heading"><h2 id="how-title">From change to clarity.</h2><span className="concept-label">How NodeDots works</span></div><div className="flow-grid"><article className="flow-card"><span className="flow-number">01</span><h3>Read the change</h3><p>Start with a pull request, then give NodeDots the context around it.</p></article><article className="flow-card"><span className="flow-number">02</span><h3>Map what it touches</h3><p>See the connected code, tests, data, and assumptions that move with it.</p></article><article className="flow-card"><span className="flow-number">03</span><h3>Review what matters</h3><p>Understand what is confirmed, missing, conflicting, or ready for action.</p></article></div></section>
       <section className="preview-section" id="preview" aria-labelledby="preview-title">
-        <div className="section-heading"><h2 id="preview-title">See what the change missed.</h2><span className="concept-label">Interactive concept</span></div>
+        <div className="section-heading"><h2 id="preview-title">See the change in context.</h2><span className="concept-label">Interactive concept</span></div>
         <div className="workspace">
           <div className="workspace-bar"><span className="workspace-name"><Mark/> Change review</span><span className="workspace-meta">GitHub pull requests</span></div>
           <Tabs value={active} onValueChange={value => { setActive(value); setSelected(3); setSelectionVersion(0); }}>
@@ -123,6 +127,7 @@ export default function Landing() {
         </div>
         <ul className="state-legend" aria-label="The five finding states">{(Object.keys(states) as State[]).map(state => <li key={state}><div><Dot state={state}/><strong>{states[state].label}</strong></div><p>{states[state].meaning}</p></li>)}</ul>
       </section>
+      <section className="future-teaser" aria-labelledby="future-teaser-title"><div><p className="concept-label">Beyond Code</p><h2 id="future-teaser-title">The same intelligence can travel further.</h2><p>Explore the future directions behind NodeDots Code, from applications and contracts to research, verification, and decisions.</p></div><a className="text-button" href="/vision">See what’s next <span aria-hidden="true">↗</span></a></section>
     </main>
     <footer><div className="footer-identity"><a className="brand" href="#" aria-label="NodeDots home"><Mark/><span>NodeDots</span></a><span>Connect the dots before you act.</span></div><div className="footer-links"><span>© {new Date().getFullYear()} NodeDots</span><button className="text-button" onClick={() => setPrivacy(true)}>Waitlist privacy</button></div></footer>
     <Dialog open={privacy} onOpenChange={setPrivacy}><DialogContent className="privacy-dialog"><DialogTitle className="privacy-title">Waitlist privacy</DialogTitle><DialogDescription>We collect your email address and the time you join so we can send NodeDots early-access invitations and launch updates. We store signups with our hosting service and do not publish or sell your email address.</DialogDescription><p>We use short-lived, hashed request identifiers to limit automated abuse. This page does not connect to your repositories or process your code.</p><p>Joining is optional. Each update will include an unsubscribe option. We will review and remove waitlist data when the early-access campaign ends.</p><button className="button" onClick={() => setPrivacy(false)}>Got it</button></DialogContent></Dialog>
